@@ -8,6 +8,7 @@ void check_arg_number(int argc)
 {
 	if (argc != 2)
 	{
+		dprintf(STDERR_FILENO, "%s", err_colour);
 		dprintf(STDERR_FILENO, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
