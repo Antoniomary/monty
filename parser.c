@@ -13,7 +13,7 @@ int parser(stack_t **head, const char *instr, unsigned int line_number)
 	instruction_t list[] = {
 		{"push", push}, {"pall", pall},
 		{"pint", pint}, {"pop", pop},
-		{"swap", swap},/* {"add", add}, */
+		{"swap", swap}, {"add", add},
 		/* {"nop", nop}, {"sub", sub}, */
 		/* {"div", div}, {"mul", mul}, */
 		/* {"mod", mod}, */
