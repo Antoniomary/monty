@@ -62,9 +62,11 @@ void pop(stack_t **head, unsigned int line_number)
 		print_err(*head, err_msg, line_number, NULL);
 
 	info.top = info.top->prev;
-	info.top->next = NULL;
+	if (info.top)
+		info.top->next = NULL;
+	else
+		*head = NULL;
 	free(temp); /* frees the top node */
-
 }
 
 /**
