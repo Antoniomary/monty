@@ -24,9 +24,11 @@ int main(int ac, char **av)
 		if (line_size > 0)
 		{
 			piece = strtok(line, " \t\n");
-			if (piece && piece[0] != '#')
+			if (piece)
 			{
-				if (strcmp(piece, "push") == 0)
+				if (piece[0] == '#')
+					nop(&head, line_number);
+				else if (strcmp(piece, "push") == 0)
 				{
 					piece = strtok(NULL, " \t\n");
 					if (piece && is_valid_number(piece))
@@ -46,7 +48,6 @@ int main(int ac, char **av)
 		free(line);
 	}
 	free_stack(head), close(info.fd);
-
 	return (0);
 }
 
