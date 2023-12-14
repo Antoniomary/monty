@@ -24,5 +24,6 @@ void free_second_top(void)
 	stack_t *first_top = info.top;
 
 	info.top = info.top->prev;
+	info.top->next = NULL;
 	free(first_top);
 }
