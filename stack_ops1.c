@@ -56,7 +56,7 @@ void nop(stack_t **head, unsigned int line_number)
  */
 void _div(stack_t **head, unsigned int line_number)
 {
-	char *err_msg = "can't add, stack too short";
+	char *err_msg = "can't div, stack too short";
 	char *err_msg_zero_div = "division by zero";
 
 	(void) head;
