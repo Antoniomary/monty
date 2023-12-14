@@ -47,3 +47,44 @@ void nop(stack_t **head, unsigned int line_number)
 	(void) head;
 	(void) line_number;
 }
+
+/**
+ * div - a function that divides the second top element of the stack
+ * by the top element of the stack.
+ * @head: a double pointer to head node of the stack.
+ * @line_number: the line the opcode was passed.
+ */
+void _div(stack_t **head, unsigned int line_number)
+{
+	char *err_msg = "can't add, stack too short";
+	char *err_msg_zero_div = "division by zero";
+
+	(void) head;
+
+	if (!info.top || !info.top->prev)
+		print_err(*head, err_msg, line_number, NULL);
+
+	if (info.top->n == 0)
+		print_err(*head, err_msg_zero_div, line_number, NULL);
+
+	info.top->prev->n /= info.top->n;
+	pop(head, line_number);
+}
+
+/**
+ * mul - a function that multiplies the top two elements of the stack.
+ * @head: a double pointer to head node of the stack.
+ * @line_number: the line the opcode was passed.
+ */
+void mul(stack_t **head, unsigned int line_number)
+{
+	char *err_msg = "can't mul, stack too short";
+
+	(void) head;
+
+	if (!info.top || !info.top->prev)
+		print_err(*head, err_msg, line_number, NULL);
+
+	info.top->prev->n *= info.top->n;
+	pop(head, line_number);
+}
