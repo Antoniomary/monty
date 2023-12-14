@@ -77,6 +77,8 @@ void mul(stack_t **head, unsigned int line_number);
 void mod(stack_t **head, unsigned int line_number);
 void pchar(stack_t **head, unsigned int line_number);
 void pstr(stack_t **head, unsigned int line_number);
+void rotl(stack_t **head, unsigned int line_number);
+void rotr(stack_t **head, unsigned int line_number);
 
 /********************* UTILS_ERROR *******************************/
 void check_arg_number(int argc);
