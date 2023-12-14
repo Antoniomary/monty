@@ -9,7 +9,7 @@
 void mod(stack_t **head, unsigned int line_number)
 {
 	char *err_msg = "can't mod, stack too short";
-	char *err_msg_zero_div = "division by zero";
+	char *err_msg_zero_mod = "division by zero";
 
 	(void) head;
 
@@ -17,7 +17,7 @@ void mod(stack_t **head, unsigned int line_number)
 		print_err(*head, err_msg, line_number, NULL);
 
 	if (info.top->n == 0)
-		print_err(*head, err_msg_zero_div, line_number, NULL);
+		print_err(*head, err_msg_zero_mod, line_number, NULL);
 
 	info.top->prev->n %= info.top->n;
 	pop(head, line_number);
