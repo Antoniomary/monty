@@ -16,8 +16,7 @@ int parser(stack_t **head, const char *instr, unsigned int line_number)
 		{"swap", swap}, {"add", add},
 		{"nop", nop}, {"sub", sub},
 		{"div", _div}, {"mul", mul},
-		/* {"mod", mod}, */
-		{NULL, NULL}
+		{"mod", mod}, {NULL, NULL}
 	};
 	unsigned int i;
 
