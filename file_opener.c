@@ -13,7 +13,7 @@ int open_file(char *file)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't open file %s", file);
+		dprintf(STDERR_FILENO, "Error: Can't open file %s\n", file);
 		exit(EXIT_FAILURE);
 	}
 
