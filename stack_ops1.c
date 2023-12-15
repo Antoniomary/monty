@@ -49,7 +49,7 @@ void nop(stack_t **head, unsigned int line_number)
 }
 
 /**
- * div - a function that divides the second top element of the stack
+ * _div - a function that divides the second top element of the stack
  * by the top element of the stack.
  * @head: a double pointer to head node of the stack.
  * @line_number: the line the opcode was passed.
