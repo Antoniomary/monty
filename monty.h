@@ -50,6 +50,7 @@ typedef struct instruction_s
  * struct extra - information needed to run the stack
  * @new_n: integer for a new node.
  * @fd: the file descriptor of the script that is been run.
+ * @mode: refer to behaviour as stack or queue.
  * @top: the tail node.
  *
  * Description: contains some information
@@ -61,8 +62,6 @@ typedef struct extra
 	int fd;
 	int mode;
 	stack_t *top;
-	stack_t *front;
-	stack_t *rear;
 } stack_d;
 
 stack_d info;
@@ -93,6 +92,7 @@ void print_err(stack_t *head, const char *msg, unsigned int line, char *more);
 
 int readline(char **line, int fd);
 int is_valid_number(char *str);
+void reverse_doubly_list(stack_t **head);
 
 int open_file(char *file);
 
