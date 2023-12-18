@@ -14,8 +14,8 @@ int main(int ac, char **av)
 	char *line = NULL, *piece = NULL;
 	stack_t *head = NULL;
 
-	check_arg_number(ac);
-	info.fd = open_file(av[1]);
+	info.mode = STACK;
+	check_arg_number(ac), info.fd = open_file(av[1]);
 	for (line_number = 1; keep_reading ; ++line_number, line = NULL)
 	{
 		line_size = readline(&line, info.fd);
