@@ -37,10 +37,22 @@ void push(stack_t **head, unsigned int line_number)
  */
 void pall(stack_t **head, unsigned int line_number)
 {
-	stack_t *ptr = info.top;
+	stack_t *ptr = NULL;
 
 	(void) head, (void) line_number;
 
+	if (info.mode == QUEUE)
+	{
+		ptr = *head;
+		while (ptr)
+		{
+			printf("%d\n", ptr->n);
+			ptr = ptr->next;
+		}
+		return;
+	}
+
+	ptr = info.top;
 	while (ptr)
 	{
 		printf("%d\n", ptr->n);
