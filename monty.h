@@ -12,7 +12,6 @@
 #include <unistd.h>
 
 #define N 10
-#define DEFAULT 0
 #define STACK 1
 #define QUEUE 2
 
