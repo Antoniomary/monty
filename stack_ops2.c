@@ -8,6 +8,7 @@
  */
 void mod(stack_t **head, unsigned int line_number)
 {
+	stack_t *temp;
 	char *err_msg = "can't mod, stack too short";
 	char *err_msg_zero_mod = "division by zero";
 
@@ -19,7 +20,7 @@ void mod(stack_t **head, unsigned int line_number)
 	if (info.mode == QUEUE)
 	{
 		if ((*head)->next->n == 0)
-			print_err(*head, err_msg_zero_div, line_number, NULL);
+			print_err(*head, err_msg_zero_mod, line_number, NULL);
 
 		(*head)->n %= (*head)->next->n;
 		temp = (*head)->next;
