@@ -7,6 +7,7 @@
  */
 void add(stack_t **head, unsigned int line_number)
 {
+	stack_t *temp;
 	char *err_msg = "can't add, stack too short";
 
 	(void) head;
@@ -14,6 +15,14 @@ void add(stack_t **head, unsigned int line_number)
 	if (!info.top || !info.top->prev)
 		print_err(*head, err_msg, line_number, NULL);
 
+	if (info.mode == QUEUE)
+	{
+		(*head)->n += (*head)->next->n;
+		temp = (*head)->next;
+		(*head)->next = (*head)->next->next;
+		free(temp);
+		return;
+	}
 	info.top->prev->n += info.top->n;
 	pop(head, line_number);
 }
@@ -33,6 +42,14 @@ void sub(stack_t **head, unsigned int line_number)
 	if (!info.top || !info.top->prev)
 		print_err(*head, err_msg, line_number, NULL);
 
+	if (info.mode == QUEUE)
+	{
+		(*head)->n -= (*head)->next->n;
+		temp = (*head)->next;
+		(*head)->next = (*head)->next->next;
+		free(temp);
+		return;
+	}
 	info.top->prev->n -= info.top->n;
 	pop(head, line_number);
 }
@@ -64,6 +81,17 @@ void _div(stack_t **head, unsigned int line_number)
 	if (!info.top || !info.top->prev)
 		print_err(*head, err_msg, line_number, NULL);
 
+	if (info.mode == QUEUE)
+	{
+		if ((*head)->next->n == 0)
+			print_err(*head, err_msg_zero_div, line_number, NULL);
+
+		(*head)->n /= (*head)->next->n;
+		temp = (*head)->next;
+		(*head)->next = (*head)->next->next;
+		free(temp);
+		return;
+	}
 	if (info.top->n == 0)
 		print_err(*head, err_msg_zero_div, line_number, NULL);
 
@@ -85,6 +113,14 @@ void mul(stack_t **head, unsigned int line_number)
 	if (!info.top || !info.top->prev)
 		print_err(*head, err_msg, line_number, NULL);
 
+	if (info.mode == QUEUE)
+	{
+		(*head)->n *= (*head)->next->n;
+		temp = (*head)->next;
+		(*head)->next = (*head)->next->next;
+		free(temp);
+		return;
+	}
 	info.top->prev->n *= info.top->n;
 	pop(head, line_number);
 }
