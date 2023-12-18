@@ -7,6 +7,9 @@
  */
 void stack(stack_t **head, unsigned int line_number)
 {
+	(void) head;
+	(void) line_number;
+
 	if (info.mode == QUEUE)
 	{
 		info.mode = STACK;
@@ -23,6 +26,9 @@ void stack(stack_t **head, unsigned int line_number)
  */
 void queue(stack_t **head, unsigned int line_number)
 {
+	(void) head;
+	(void) line_number;
+
 	if (info.mode == DEFAULT)
 	{
 		info.mode = QUEUE;
