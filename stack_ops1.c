@@ -35,6 +35,7 @@ void add(stack_t **head, unsigned int line_number)
  */
 void sub(stack_t **head, unsigned int line_number)
 {
+	stack_t *temp;
 	char *err_msg = "can't sub, stack too short";
 
 	(void) head;
@@ -73,6 +74,7 @@ void nop(stack_t **head, unsigned int line_number)
  */
 void _div(stack_t **head, unsigned int line_number)
 {
+	stack_t *temp;
 	char *err_msg = "can't div, stack too short";
 	char *err_msg_zero_div = "division by zero";
 
@@ -106,6 +108,7 @@ void _div(stack_t **head, unsigned int line_number)
  */
 void mul(stack_t **head, unsigned int line_number)
 {
+	stack_t *temp;
 	char *err_msg = "can't mul, stack too short";
 
 	(void) head;
