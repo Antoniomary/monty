@@ -9,13 +9,13 @@ void stack(stack_t **head, unsigned int line_number)
 {
 	(void) line_number;
 
-	info.mode = STACK;
-
 	if (info.mode == QUEUE)
 	{
 		info.top = *head;
 		reverse_doubly_list(head);
 	}
+
+	info.mode = STACK;
 }
 
 /**
@@ -27,11 +27,11 @@ void queue(stack_t **head, unsigned int line_number)
 {
 	(void) line_number;
 
-	info.mode = QUEUE;
-
 	if (info.mode == STACK)
 	{
 		info.top = *head;
 		reverse_doubly_list(head);
 	}
+
+	info.mode = QUEUE;
 }
