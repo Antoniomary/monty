@@ -12,7 +12,9 @@
 #include <unistd.h>
 
 #define N 10
-#define OPCODE 1
+#define DEFAULT 0
+#define STACK 1
+#define QUEUE 2
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -57,7 +59,10 @@ typedef struct extra
 {
 	int new_n;
 	int fd;
+	int mode;
 	stack_t *top;
+	stack_t *front;
+	stack_t *rear;
 } stack_d;
 
 stack_d info;
@@ -79,26 +84,21 @@ void pchar(stack_t **head, unsigned int line_number);
 void pstr(stack_t **head, unsigned int line_number);
 void rotl(stack_t **head, unsigned int line_number);
 void rotr(stack_t **head, unsigned int line_number);
+void stack(stack_t **head, unsigned int line_number);
+void queue(stack_t **head, unsigned int line_number);
 
-/********************* UTILS_ERROR *******************************/
 void check_arg_number(int argc);
 void malloc_error(stack_t *head);
 void print_err(stack_t *head, const char *msg, unsigned int line, char *more);
 
-
-/********************* GETLINE FUNCTION **************************/
 int readline(char **line, int fd);
-
 int is_valid_number(char *str);
 
-/********************* UTILS_IO **********************************/
 int open_file(char *file);
-
 
 void free_second_top(void);
 void free_stack(stack_t *head);
 
-/********************* UTILS_ALLOC *******************************/
 void *_realloc(void *ptr, int old_size, int new_size);
 
 #endif /* MONTY_H */
