@@ -16,6 +16,17 @@ void mod(stack_t **head, unsigned int line_number)
 	if (!info.top || !info.top->prev)
 		print_err(*head, err_msg, line_number, NULL);
 
+	if (info.mode == QUEUE)
+	{
+		if ((*head)->next->n == 0)
+			print_err(*head, err_msg_zero_div, line_number, NULL);
+
+		(*head)->n %= (*head)->next->n;
+		temp = (*head)->next;
+		(*head)->next = (*head)->next->next;
+		free(temp);
+		return;
+	}
 	if (info.top->n == 0)
 		print_err(*head, err_msg_zero_mod, line_number, NULL);
 
